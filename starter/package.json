@@ -1,0 +1,17 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "description": "A team member generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --vercose"
+  },
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  },
+  "author": "Tamsin Lloyd",
+  "license": "MIT"
+}
