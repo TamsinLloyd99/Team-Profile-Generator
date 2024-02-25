@@ -234,12 +234,18 @@ const addIntern = () => {
     });
 }
 
-function generateHTML() {
-    fs.writeFile(outputPath, render(team), err => {
+
+//Call the render function (provided for you) and pass in an array containing all employee objects;
+//The render function will generate and return a block of HTML including templated divs for each employee!
+generateHTML(team);
+
+function generateHTML(team) {
+    const teamHTML = render(team);
+    fs.writeFile(outputPath, teamHTML, (err) => {
         if (err) {
             console.log(err);
             return;
         }
         console.log("Successfully created team.html!")
-    })
+    });
 }

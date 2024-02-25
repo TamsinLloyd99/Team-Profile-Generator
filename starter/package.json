@@ -7,10 +7,11 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "jest --vercose"
+    "test": "jest --verbose"
   },
   "dependencies": {
-    "inquirer": "^8.0.0"
+    "inquirer": "^8.0.0",
+    "jest": "^29.7.0"
   },
   "author": "Tamsin Lloyd",
   "license": "MIT"
