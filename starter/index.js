@@ -17,6 +17,7 @@ const { get } = require("http");
 const team = [];
 
 const addManager = () => {
+    console.log("Adding Manager...");
     return inquirer.prompt([
         {
             type: "input",
@@ -72,6 +73,7 @@ const addManager = () => {
         }
     ])//a new Manager object is created with the provided details.
     .then(managerInput => {
+        console.log("Manager input received:", managerInput);
         const { name, id, email, officeNumber } = managerInput;
         const manager = new Manager(name, id, email, officeNumber);
         team.push(manager);//the Manager object is added to the team array.
