@@ -1,5 +1,5 @@
 {
-  "name": "starter",
+  "name": "team-profile-generator",
   "version": "1.0.0",
   "description": "A team member generator",
   "main": "index.js",

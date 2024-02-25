@@ -1,6 +1,6 @@
-const Manager = require("./lib/Manager");//exported manager info
-const Engineer = require("./lib/Engineer");//exported engineer info
-const Intern = require("./lib/Intern");//exported intern info
+const Manager = require("./lib/Manager.js");//exported manager info
+const Engineer = require("./lib/Engineer.js");//exported engineer info
+const Intern = require("./lib/Intern.js");//exported intern info
 const inquirer = require("inquirer");//used for prompting the user for input
 const path = require("path");//used for handling file paths and file operations
 const fs = require("fs");//used for handling file paths and file operations
@@ -253,5 +253,5 @@ function generateHTML(team) {
         console.log("Successfully created team.html!")
     });
 }
-mainApp();
+
 
