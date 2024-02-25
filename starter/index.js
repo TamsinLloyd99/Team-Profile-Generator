@@ -13,8 +13,11 @@ const { get } = require("http");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
+// function mainApp() {
+    
 
 const team = [];
+
 
 const addManager = () => {
     console.log("Adding Manager...");
@@ -81,10 +84,7 @@ const addManager = () => {
     });
 
 }
-//When a user enters those requirements then the user is presented with a menu with the option to:
-// Add an engineer
-// Add an intern
-// Finish building the team
+
 const addEmployee = () => {
     return inquirer.prompt([
         {
@@ -103,7 +103,7 @@ const addEmployee = () => {
                 addIntern();
                 break;
             case "Finish building the team":
-                generateHTML();
+                generateHTML(team);
                 break;
         }
     });
@@ -235,11 +235,13 @@ const addIntern = () => {
         addEmployee();
     });
 }
+addManager();
+
 
 
 //Call the render function (provided for you) and pass in an array containing all employee objects;
 //The render function will generate and return a block of HTML including templated divs for each employee!
-generateHTML(team);
+
 
 function generateHTML(team) {
     const teamHTML = render(team);
@@ -251,3 +253,5 @@ function generateHTML(team) {
         console.log("Successfully created team.html!")
     });
 }
+mainApp();
+
