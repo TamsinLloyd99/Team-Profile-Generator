@@ -22,7 +22,7 @@ const addManager = () => {
             type: "input",
             name: "name",
             message: "What is the team manager's name?",
-            validate: nameInput => {
+            validate: nameInput => {//checks whether the user's input is valid
                 if (nameInput) {
                     return true;
                 } else {
@@ -70,14 +70,41 @@ const addManager = () => {
                 }   
             }
         }
-    ])
+    ])//a new Manager object is created with the provided details.
     .then(managerInput => {
         const { name, id, email, officeNumber } = managerInput;
         const manager = new Manager(name, id, email, officeNumber);
-        team.push(manager);
+        team.push(manager);//the Manager object is added to the team array.
         addEmployee();
     });
 
+}
+//When a user enters those requirements then the user is presented with a menu with the option to:
+// Add an engineer
+// Add an intern
+// Finish building the team
+const addEmployee = () => {
+    return inquirer.prompt([
+        {
+            type: "list",
+            name: "menu",
+            message: "What would you like to do?",
+            choices: ["Add an engineer", "Add an intern", "Finish building the team"]
+        }
+    ])
+    .then(menuChoice => {
+        switch (menuChoice.menu) {
+            case "Add an engineer":
+                addEngineer();
+                break;
+            case "Add an intern":
+                addIntern();
+                break;
+            case "Finish building the team":
+                generateHTML();
+                break;
+        }
+    });
 }
 
 const addEngineer = () => {
@@ -137,11 +164,12 @@ const addEngineer = () => {
     ])
     .then(engineerInput => {
         const { name, id, email, github } = engineerInput;
-        const engineer = new engineer(name, id, email, github);
+        const engineer = new Engineer(name, id, email, github);
         team.push(engineer);
         addEmployee();
     });
 }
+
 
 const addIntern = () => {
     return inquirer.prompt([
@@ -204,4 +232,14 @@ const addIntern = () => {
         team.push(intern);
         addEmployee();
     });
+}
+
+function generateHTML() {
+    fs.writeFile(outputPath, render(team), err => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log("Successfully created team.html!")
+    })
 }
